@@ -1,24 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import Alphabet from "./components/Alphabet/Alphabet";
+import GameStatus from "./components/GameStatus/GameStatus";
+import GuessWord from "./components/GuessWord/GuessWord";
+import Hangman from "./components/Hangman/Hangman";
+import UsedLetters from "./components/UsedLetters/UsedLetters";
 
 function App() {
+  const doSomething = (letter) => {
+    console.log(letter);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div className="hangman-container">
+        <Hangman />
+      </div>
+      <GuessWord />
+      <section className="used-letters-container">
+        <h2>Used letters</h2>
+        <UsedLetters />
+      </section>
+      <GameStatus gameStatus={0} />
+      <Alphabet actionOnClick={doSomething} />
+    </>
   );
 }
 
